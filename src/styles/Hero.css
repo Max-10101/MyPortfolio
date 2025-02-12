@@ -19,31 +19,143 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.hero-section {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: var(--sky-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 26%;
+}
+
+.hero-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, var(--star-color) 100%, transparent),
+    radial-gradient(1px 1px at 40px 70px, var(--star-color) 100%, transparent),
+    radial-gradient(1px 1px at 50px 160px, var(--star-color) 100%, transparent),
+    radial-gradient(2px 2px at 200px 20px, var(--star-color) 100%, transparent),
+    radial-gradient(2px 2px at 300px 100px, var(--star-color) 100%, transparent),
+    radial-gradient(1px 1px at 150px 150px, var(--star-color) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 250px 180px, var(--star-color) 100%, transparent),
+    radial-gradient(1px 1px at 100px 250px, var(--star-color) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 300px 350px, var(--star-color) 100%, transparent),
+    radial-gradient(1px 1px at 400px 280px, var(--star-color) 100%, transparent),
+    radial-gradient(2px 2px at 380px 120px, var(--star-color) 100%, transparent),
+    radial-gradient(1px 1px at 420px 200px, var(--star-color) 100%, transparent);
+  background-repeat: repeat;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.7; }
+}
+
+.hero-mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background-image: 
+    linear-gradient(135deg, transparent 50%, var(--mountain-color1) 50%),
+    linear-gradient(-135deg, transparent 50%, var(--mountain-color1) 50%),
+    linear-gradient(115deg, transparent 50%, var(--mountain-color2) 50%),
+    linear-gradient(-115deg, transparent 50%, var(--mountain-color2) 50%);
+  background-size: 
+    300px 300px,
+    300px 300px,
+    400px 400px,
+    400px 400px;
+  background-position: 
+    50% 100%,
+    50% 100%,
+    20% 100%,
+    80% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.hero-moon {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  width: 40px;
+  height: 40px;
+  background: var(--star-color);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 0 60px rgba(255, 255, 255, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  clip-path: polygon(
+    0% 0%, 25% 0%, 25% 25%, 50% 25%, 50% 0%, 75% 0%, 75% 25%, 
+    100% 25%, 100% 50%, 75% 50%, 75% 75%, 50% 75%, 50% 100%, 
+    25% 100%, 25% 75%, 0% 75%
+  );
+  pointer-events: none;
+  animation: moonGlow 3s infinite alternate;
+}
+
+@keyframes moonGlow {
+  from {
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.5),
+      0 0 40px rgba(255, 255, 255, 0.3),
+      0 0 60px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 50px rgba(255, 255, 255, 0.4),
+      0 0 70px rgba(255, 255, 255, 0.3);
+  }
+}
+
 .hero-content {
   position: relative;
-  text-align: center;
-  background-color: rgba(44, 24, 16, 0.9);
+  z-index: 1;
   padding: 3rem;
+  color: var(--text-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  border: 3px solid var(--border-color);
+  backdrop-filter: blur(5px);
+  transform: translateY(-10%);
 }
 
 .hero-title {
-  font-size: 4rem;
-  color: var(--text-color);
+  font-size: 3.5rem;
   margin-bottom: 1rem;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, var(--text-color), var(--highlight-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: var(--secondary-color);
   margin-bottom: 2rem;
+  opacity: 0.9;
 }
 
 .hero-buttons {
   display: flex;
   gap: 1rem;
+  margin-top: 2rem;
   justify-content: center;
 }
 
