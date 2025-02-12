@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">Bienvenue dans mon univers</h1>
           <p className="hero-subtitle">Développeur passionné</p>
           <div className="hero-buttons">
-            <button className="dofus-button">Voir mes projets</button>
+            <Link to="/projects" className="dofus-button">Voir mes projets</Link>
             <Link to="/about" className="dofus-button">À propos de moi</Link>
           </div>
         </div>
