@@ -22,12 +22,68 @@
 .hero-section {
   position: relative;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   background: var(--sky-color);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-top: 26%;
+  padding-bottom: 10%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 4rem;
+  color: var(--text-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--text-color), var(--highlight-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.hero-buttons .dofus-button {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
 }
 
 .hero-stars {
@@ -119,47 +175,4 @@
       0 0 50px rgba(255, 255, 255, 0.4),
       0 0 70px rgba(255, 255, 255, 0.3);
   }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 3rem;
-  color: var(--text-color);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  transform: translateY(-10%);
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--text-color), var(--highlight-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: none;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  justify-content: center;
-}
-
-.hero-buttons .dofus-button {
-  font-size: 1.2rem;
-  padding: 15px 30px;
 }

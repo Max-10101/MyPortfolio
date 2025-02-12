@@ -1,4 +1,4 @@
-.about-section {
+.contact-section {
   position: relative;
   min-height: 100vh;
   width: 100%;
@@ -10,7 +10,7 @@
   padding-top: 15vh;
 }
 
-.about-content {
+.contact-content {
   position: relative;
   z-index: 1;
   padding: 4rem;
@@ -23,6 +23,92 @@
   border-radius: 15px;
   backdrop-filter: blur(5px);
   height: 55vh;
+  overflow-y: auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.contact-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
 }
 
 .back-button {
@@ -59,75 +145,6 @@
                0 0 40px var(--primary-color),
                0 0 50px var(--primary-color),
                0 0 60px var(--primary-color);
-}
-
-.section-title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: var(--text-color);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.about-item {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-  margin: 1rem;
-}
-
-.about-item:hover {
-  transform: translateY(-5px);
-}
-
-.about-item h2 {
-  color: var(--secondary-color);
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.about-item p {
-  line-height: 1.6;
-}
-
-.skills-list {
-  list-style: none;
-  padding: 0;
-}
-
-.skills-list li {
-  margin: 0.8rem 0;
-  padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.skills-list li:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.details-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-color);
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border: 2px solid var(--border-color);
-}
-
-.details-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
 }
 
 @keyframes glow {

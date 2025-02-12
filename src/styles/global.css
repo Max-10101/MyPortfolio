@@ -27,18 +27,20 @@ html, body {
 }
 
 body {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
 }
 
 #root, .app {
   height: 100%;
+  width: 100%;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 95%;
+  max-width: 1800px;
+  margin: 0;
   padding: 0 20px;
   position: relative;
 }
