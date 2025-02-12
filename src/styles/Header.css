@@ -1,9 +1,14 @@
 .header {
-  background-color: var(--primary-color);
-  padding: 1rem 0;
-  border-bottom: 3px solid var(--border-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   width: 100%;
+  padding: 1rem 0;
+  background: linear-gradient(
+    to right,
+    rgba(88, 28, 135, 0.95),
+    rgba(147, 51, 234, 0.95),
+    rgba(100, 255, 218, 0.85)
+  );
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid var(--border-color);
 }
 
 .nav {
@@ -55,4 +60,26 @@
 
 .nav-links a:hover {
   color: var(--secondary-color);
+}
+
+.login-link,
+.logout-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.login-link:hover,
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logout-button {
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
 }
