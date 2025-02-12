@@ -1,0 +1,156 @@
+.details-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--sky-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5vh;
+}
+
+.details-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem;
+  color: var(--text-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 85%;
+  max-width: 1800px;
+  height: 80vh;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+}
+
+/* Style de la scrollbar */
+.details-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.details-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.details-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.details-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.details-item {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  text-align: left;
+}
+
+.details-item h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.skills-category {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.skills-category h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  margin: 0.8rem 0;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.skills-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.back-button {
+  position: fixed;
+  bottom: 2rem;
+  left: 4rem;
+  font-size: 2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff,
+               0 0 30px var(--primary-color),
+               0 0 40px var(--primary-color);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.back-arrow {
+  transform: scale(1.5);
+}
+
+.back-button:hover {
+  transform: translateX(-10px);
+  text-shadow: 0 0 20px #fff,
+               0 0 30px #fff,
+               0 0 40px var(--primary-color),
+               0 0 50px var(--primary-color),
+               0 0 60px var(--primary-color);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 30px var(--primary-color);
+  }
+  to {
+    text-shadow: 0 0 15px #fff,
+                 0 0 25px #fff,
+                 0 0 35px var(--primary-color),
+                 0 0 45px var(--primary-color);
+  }
+}

@@ -1,0 +1,414 @@
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--sky-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.projects-content {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  color: var(--text-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  max-width: 1800px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.section-title {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.projects-carousel {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: auto;
+  max-height: 90vh;
+  margin: 0 auto;
+}
+
+.project-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 2rem;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.project-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.project-tech span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.project-tech span:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.project-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-link {
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.project-link:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Style des boutons de navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  top: 40% !important;
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.swiper-button-next::before,
+.swiper-button-prev::before,
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: '';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 50px !important;
+  color: var(--primary-color);
+  text-shadow: 0 0 15px var(--primary-color),
+               0 0 30px var(--primary-color);
+  transition: all 0.3s ease;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.9;
+}
+
+.swiper-button-next::after {
+  content: '→' !important;
+}
+
+.swiper-button-prev::after {
+  content: '←' !important;
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  color: #fff;
+  transform: scale(1.2);
+  text-shadow: 0 0 20px var(--primary-color),
+               0 0 40px var(--primary-color),
+               0 0 60px var(--primary-color),
+               0 0 80px var(--primary-color),
+               0 0 100px var(--primary-color);
+  opacity: 1;
+}
+
+.swiper-button-next {
+  right: 5% !important;
+}
+
+.swiper-button-prev {
+  left: 5% !important;
+}
+
+/* Suppression forcée de tous les styles de fond */
+.swiper-button-next *,
+.swiper-button-prev * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Style des points de pagination */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: var(--primary-color);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--primary-color);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Ajustements pour le responsive */
+@media (max-width: 768px) {
+  .projects-content {
+    padding: 1rem;
+    width: 95%;
+    height: 90vh;
+  }
+
+  .mySwiper {
+    padding: 0.5rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+  
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-image {
+    height: 150px;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.project-tech span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-link {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.back-button {
+  position: fixed;
+  bottom: 2rem;
+  left: 4rem;
+  font-size: 2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff,
+               0 0 30px var(--primary-color),
+               0 0 40px var(--primary-color);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.back-arrow {
+  transform: scale(1.5);
+}
+
+.back-button:hover {
+  transform: translateX(-10px);
+  text-shadow: 0 0 20px #fff,
+               0 0 30px #fff,
+               0 0 40px var(--primary-color),
+               0 0 50px var(--primary-color),
+               0 0 60px var(--primary-color);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 30px var(--primary-color);
+  }
+  to {
+    text-shadow: 0 0 15px #fff,
+                 0 0 25px #fff,
+                 0 0 35px var(--primary-color),
+                 0 0 45px var(--primary-color);
+  }
+}
+
+/* Styles pour l'effet de fondu */
+.swiper-slide {
+  opacity: 0 !important;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+}
+
+/* Ajustement de la taille du conteneur */
+.projects-carousel .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.projects-carousel .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
