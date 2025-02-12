@@ -7,22 +7,80 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 15vh;
+  padding-top: 0;
 }
 
 .about-content {
   position: relative;
   z-index: 1;
-  padding: 4rem;
+  padding: 0;
   color: var(--text-color);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
-  width: 85%;
+  width: 100%;
   max-width: 1800px;
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
+  border-radius: 0;
   backdrop-filter: blur(5px);
-  height: 55vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin: 0;
+  padding: 1rem 0;
+  color: var(--text-color);
+}
+
+.about-main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left;
+  max-width: 800px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
 }
 
 .back-button {
@@ -59,12 +117,6 @@
                0 0 40px var(--primary-color),
                0 0 50px var(--primary-color),
                0 0 60px var(--primary-color);
-}
-
-.section-title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: var(--text-color);
 }
 
 .about-grid {
@@ -141,5 +193,33 @@
                  0 0 25px #fff,
                  0 0 35px var(--primary-color),
                  0 0 45px var(--primary-color);
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .about-image {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    padding: 1rem;
+    width: 95%;
+    height: 90vh;
+  }
+
+  .about-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
   }
 }
