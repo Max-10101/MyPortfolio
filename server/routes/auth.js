@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
     // Verify admin credentials
     if (username !== process.env.ADMIN_USERNAME || password !== process.env.ADMIN_PASSWORD) {
       console.log('Invalid credentials');
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
 
     // Generate JWT token
@@ -39,17 +39,17 @@ router.post('/login', async (req, res) => {
     });
 
     console.log('Login successful');
-    res.json({ message: 'Login successful' });
+    res.json({ success: true, message: 'Login successful' });
   } catch (error) {
     console.error('Login error:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
 
 // Logout route
 router.post('/logout', (req, res) => {
   res.clearCookie('token');
-  res.json({ message: 'Logout successful' });
+  res.json({ success: true, message: 'Logout successful' });
 });
 
 // Verify token route

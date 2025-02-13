@@ -6,7 +6,7 @@ const About: React.FC = () => {
   return (
     <section className="about-section">
       <div className="hero-stars"></div>
-      <div className="hero-mountains"></div>
+      
       <Link to="/" className="back-button">
         <span className="back-arrow">←</span>
       </Link>
