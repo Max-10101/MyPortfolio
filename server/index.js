@@ -5,15 +5,24 @@ import cookieParser from 'cookie-parser';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import authRoutes from './routes/auth.js';
+import contentRoutes from './routes/content.js';
 import { authenticateToken } from './middleware/auth.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Load environment variables
-dotenv.config({ path: join(__dirname, '..', '.env') });
+dotenv.config();
 
 // Verify environment variables are loaded
+const requiredEnvVars = ['ADMIN_USERNAME', 'ADMIN_PASSWORD', 'JWT_SECRET'];
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingEnvVars.length > 0) {
+  console.error('Missing required environment variables:', missingEnvVars);
+  process.exit(1);
+}
+
 console.log('Environment check:', {
   port: process.env.PORT,
   adminUsername: process.env.ADMIN_USERNAME,
@@ -36,6 +45,7 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/content', contentRoutes);
 
 // Protected route example
 app.get('/api/protected', authenticateToken, (req, res) => {

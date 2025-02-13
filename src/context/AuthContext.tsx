@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { verifyAuth, login as authLogin, logout as authLogout, handleBeforeUnload } from '../services/auth';
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -21,32 +21,44 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const verifyAuth = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/api/auth/verify', {
-          withCredentials: true
-        });
-        setIsAuthenticated(response.data.valid);
-      } catch {
+    const checkAuth = async () => {
+      const isValid = await verifyAuth();
+      setIsAuthenticated(isValid);
+    };
+
+    checkAuth();
+  }, []);
+
+  // Effet pour gérer la déconnexion automatique
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden' && isAuthenticated) {
+        handleBeforeUnload();
         setIsAuthenticated(false);
       }
     };
 
-    verifyAuth();
-  }, []);
+    const handleUnload = () => {
+      if (isAuthenticated) {
+        handleBeforeUnload();
+      }
+    };
+
+    if (isAuthenticated) {
+      window.addEventListener('beforeunload', handleUnload);
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+      
+      return () => {
+        window.removeEventListener('beforeunload', handleUnload);
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
+    }
+  }, [isAuthenticated]);
 
   const login = async (username: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/login', {
-        username,
-        password
-      }, {
-        withCredentials: true
-      });
-
-      if (response.status === 200) {
-        setIsAuthenticated(true);
-      }
+      await authLogin(username, password);
+      setIsAuthenticated(true);
     } catch (error) {
       console.error('Login error:', error);
       throw error;
@@ -55,16 +67,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logout = async () => {
     try {
-      await axios.post('http://localhost:3001/api/auth/logout', {}, {
-        withCredentials: true
-      });
+      await authLogout();
       setIsAuthenticated(false);
-      window.location.href = '/'; // Redirection forcée vers la page d'accueil
     } catch (error) {
       console.error('Logout error:', error);
-      // Même en cas d'erreur, on déconnecte l'utilisateur côté client
-      setIsAuthenticated(false);
-      window.location.href = '/';
+      throw error;
     }
   };
 
