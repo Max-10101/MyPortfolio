@@ -20,13 +20,16 @@
 }
 
 .hero-section {
-  position: relative;
   min-height: 100vh;
+  height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  overflow: hidden;
-  background-color: var(--background-color);
+  justify-content: center;
+  background: var(--sky-color);
+  position: relative;
+  box-sizing: border-box;
 }
 
 .container {
@@ -39,51 +42,63 @@
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 4rem;
-  color: var(--text-color);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  width: 80%;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  height: 35vh;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 0;
-  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  padding: 0 2rem;
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text-color);
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--text-color), var(--highlight-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
-  font-size: 1.8rem;
+  font-size: clamp(1rem, 3vw, 2rem);
+  color: var(--primary-color);
   margin-bottom: 2rem;
-  opacity: 0.9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-color);
+  max-width: 800px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
   display: flex;
   gap: 2rem;
   margin-top: 2rem;
-  justify-content: center;
 }
 
-.hero-buttons .dofus-button {
-  font-size: 1.2rem;
+.hero-button {
   padding: 1rem 2rem;
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  color: var(--text-color);
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-button:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-3px);
 }
 
 .hero-stars {
@@ -343,4 +358,21 @@
   background: rgba(0, 0, 0, 0.6);
   padding: 2px 8px;
   border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-button {
+    width: 100%;
+    max-width: 300px;
+  }
 }
